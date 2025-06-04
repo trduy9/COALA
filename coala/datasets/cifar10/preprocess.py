@@ -41,14 +41,14 @@ class Cutout(object):
 
 
 transform_train_cifar = transforms.Compose([
-    #torchvision.transforms.ToPILImage(mode='RGB'),
+    torchvision.transforms.ToPILImage(mode='RGB'),
     transforms.RandomCrop(32, padding=4),
     # The following two lines are for parameter efficient finetuning of ViT
     # transforms.Resize([224, 224]),
     # transforms.RandomCrop(224, padding=4),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
-    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.24703233, 0.24348505, 0.26158768)),
+    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.2023, 0.1994, 0.2010)),
 ])
 
 transform_train_cifar.transforms.append(Cutout())
@@ -58,8 +58,19 @@ transform_test_cifar = transforms.Compose([
     # torchvision.transforms.ToPILImage(mode='RGB'),
     # transforms.Resize([224, 224]),
     transforms.ToTensor(),
-    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.24703233, 0.24348505, 0.26158768)),
+    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.2023, 0.1994, 0.2010)),
 ])
+
+        # transform_train = transforms.Compose([
+        #     transforms.RandomCrop(32, padding=4),
+        #     transforms.RandomHorizontalFlip(),
+        #     torchvision.transforms.ToTensor(),
+        #     torchvision.transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        # ])
+        # transform_test = transforms.Compose([
+        #     torchvision.transforms.ToTensor(),
+        #     torchvision.transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        # ])
 
 
 
