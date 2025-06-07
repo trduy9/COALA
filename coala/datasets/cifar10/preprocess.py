@@ -60,6 +60,11 @@ transform_test_cifar = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.2023, 0.1994, 0.2010)),
 ])
+invTrans = transforms.Compose([transforms.Normalize(mean=[0., 0., 0.],
+                                                            std=[1 / 0.2023, 1 / 0.1994, 1 / 0.2010]),
+                                       transforms.Normalize(mean=[-0.4914, -0.4822, -0.4465],
+                                                            std=[1., 1., 1.]),
+                                       ])
 
         # transform_train = transforms.Compose([
         #     transforms.RandomCrop(32, padding=4),

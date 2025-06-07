@@ -53,18 +53,21 @@ class Cifar10(BaseDataset):
         pass
 
     def download_raw_file_and_extract(self):
-        train_set = torchvision.datasets.CIFAR10(root=self.base_folder, train=True, download=True)
-        test_set = torchvision.datasets.CIFAR10(root=self.base_folder, train=False, download=True)
+        train_set = torchvision.datasets.CIFAR10(root=self.base_folder, train=True, download=True, transform=transform_train_cifar)
+        test_set = torchvision.datasets.CIFAR10(root=self.base_folder, train=False, download=True, transform=transform_train_cifar)
+        train_set.targets = torch.tensor(train_set.targets)
+        test_set.targets = torch.tensor(test_set.targets)
+        
 
-        self.train_data = {
-            'x': train_set.data,
-            'y': train_set.targets
-        }
+        # self.train_data = {
+        #     'x': train_set.data,
+        #     'y': train_set.targets
+        # }
 
-        self.test_data = {
-            'x': test_set.data,
-            'y': test_set.targets
-        }
+        # self.test_data = {
+        #     'x': test_set.data,
+        #     'y': test_set.targets
+        # }
 
     def preprocess(self):
         train_data_path = os.path.join(self.data_folder, "train")
