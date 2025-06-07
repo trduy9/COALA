@@ -41,7 +41,7 @@ class Cutout(object):
 
 
 transform_train_cifar = transforms.Compose([
-    torchvision.transforms.ToPILImage(mode='RGB'),
+    # torchvision.transforms.ToPILImage(mode='RGB'),
     transforms.RandomCrop(32, padding=4),
     # The following two lines are for parameter efficient finetuning of ViT
     # transforms.Resize([224, 224]),

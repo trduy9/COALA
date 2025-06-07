@@ -59,16 +59,17 @@ class Cifar10(BaseDataset):
         # train_set.targets = torch.tensor(train_set.targets)
         # test_set.targets = torch.tensor(test_set.targets)
         
+        image, label = self.train_data[i]
 
-        self.train_data = {
-            'x': train_set.data,
-            'y': train_set.targets
-        }
+        # self.train_data = {
+        #     'x': train_set.data,
+        #     'y': train_set.targets
+        # }
 
-        self.test_data = {
-            'x': test_set.data,
-            'y': test_set.targets
-        }
+        # self.test_data = {
+        #     'x': test_set.data,
+        #     'y': test_set.targets
+        # }
 
     def preprocess(self):
         train_data_path = os.path.join(self.data_folder, "train")
