@@ -59,7 +59,9 @@ class Cifar10(BaseDataset):
         # train_set.targets = torch.tensor(train_set.targets)
         # test_set.targets = torch.tensor(test_set.targets)
         
-        image, label = self.train_data[i]
+        for i in range(len(self.train_data)):
+            image, label = self.train_data[i]
+
 
         # self.train_data = {
         #     'x': train_set.data,
