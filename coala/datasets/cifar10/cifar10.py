@@ -2,6 +2,7 @@ import logging
 import os
 
 import torchvision
+import torch
 
 from coala.datasets.simulation import data_simulation
 from coala.datasets.utils.base_dataset import BaseDataset, CIFAR10
