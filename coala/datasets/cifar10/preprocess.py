@@ -48,7 +48,7 @@ transform_train_cifar = transforms.Compose([
     # transforms.RandomCrop(224, padding=4),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
-    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.2023, 0.1994, 0.2010)),
+    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.24703233, 0.24348505, 0.26158768)),
 ])
 
 transform_train_cifar.transforms.append(Cutout())
@@ -58,7 +58,7 @@ transform_test_cifar = transforms.Compose([
     # torchvision.transforms.ToPILImage(mode='RGB'),
     # transforms.Resize([224, 224]),
     transforms.ToTensor(),
-    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.2023, 0.1994, 0.2010)),
+    transforms.Normalize((0.49139968, 0.48215827, 0.44653124), (0.24703233, 0.24348505, 0.26158768)),
 ])
 invTrans = transforms.Compose([transforms.Normalize(mean=[0., 0., 0.],
                                                             std=[1 / 0.2023, 1 / 0.1994, 1 / 0.2010]),
